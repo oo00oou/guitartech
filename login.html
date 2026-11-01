@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Log in to your Guitar Tech account.">
+    <title>Log in | Guitar Tech</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+    <!-- Header and a shorter background picture than the home page -->
+    <div class="hero page-hero">
+        <header>
+            <a href="index.html" class="logo">Guitar Tech</a>
+
+            <nav id="menu" aria-label="Main navigation">
+                <a href="gallery.html">Gallery</a>
+                <a href="index.html#craft">Shop</a>
+                <a href="about.html">About Us</a>
+                <a href="login.html" aria-current="page" onclick="closeCurtainMenu()">My Account</a>
+                <a href="build.html" class="commission-link">Build</a>
+            </nav>
+
+            <button id="menu-button" class="menu-button" type="button" onclick="toggleCurtainMenu()"
+                    aria-label="Open curtain menu" aria-expanded="false" aria-controls="menu">
+                <span class="curtain-icon" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                </span>
+            </button>
+        </header>
+
+        <div class="hero-text">
+            <p class="eyebrow">My Account</p>
+            <h1>Log in</h1>
+
+            <div class="decoration" aria-hidden="true">
+                <span class="gold-line"></span>
+                <span>◇</span>
+            </div>
+
+            <p class="hero-intro">Log in to see your saved builds.</p>
+        </div>
+    </div>
+
+    <main id="main-content" class="login-page" tabindex="-1">
+
+        <!-- This log in does not check anything. Pressing Log in just opens the account page. -->
+        <form class="login-card" action="account.html">
+            <h2>Welcome back</h2>
+
+            <label for="login-email">Email</label>
+            <input type="email" id="login-email" autocomplete="email" required>
+
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" autocomplete="current-password" required>
+
+            <button type="submit" class="button dark-button wide-button">Log in</button>
+
+        </form>
+    </main>
+
+    <footer>
+        <span>Guitar Tech</span>
+        <span>© <span id="year">2026</span> Guitar Tech</span>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

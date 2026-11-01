@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Design your own Guitar Tech acoustic guitar: choose the body, finish and hardware.">
+    <title>Build | Guitar Tech</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+    <!-- Header and a shorter background picture than the home page -->
+    <div class="hero page-hero">
+        <header>
+            <a href="index.html" class="logo">Guitar Tech</a>
+
+            <nav id="menu" aria-label="Main navigation">
+                <a href="gallery.html">Gallery</a>
+                <a href="index.html#craft">Shop</a>
+                <a href="about.html">About Us</a>
+                <a href="login.html">My Account</a>
+                <a href="build.html" class="commission-link" aria-current="page" onclick="closeCurtainMenu()">Build</a>
+            </nav>
+
+            <button id="menu-button" class="menu-button" type="button" onclick="toggleCurtainMenu()"
+                    aria-label="Open curtain menu" aria-expanded="false" aria-controls="menu">
+                <span class="curtain-icon" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                </span>
+            </button>
+        </header>
+
+        <div class="hero-text">
+            <p class="eyebrow">Commission</p>
+            <h1>Build your guitar</h1>
+
+            <div class="decoration" aria-hidden="true">
+                <span class="gold-line"></span>
+                <span>◇</span>
+            </div>
+
+            <p class="hero-intro">Pick a body, a finish and the hardware. The drawing changes as you go.</p>
+        </div>
+    </div>
+
+    <main id="main-content" class="build-page" tabindex="-1">
+
+        <!-- Left side: the drawing and a summary of the choices -->
+        <aside class="build-preview" aria-label="Your guitar">
+            <div class="preview-frame">
+                <img id="guitar-photo" src="assets/2.png">
+            
+            </div>
+
+            <div class="preview-summary">
+            
+                <h2 id="build-name">SD-100</h2>
+                <dl class="build-list">
+                    <div>
+                        <dt>Body</dt>
+                        <dd id="summary-body">OM body</dd>
+                    </div>
+                    <div>
+                        <dt>Finish</dt>
+                        <dd id="summary-finish">Natural</dd>
+                    </div>
+                    <div>
+                        <dt>Hardware</dt>
+                        <dd id="summary-hardware">Nickel</dd>
+                    </div>
+                    <div class="build-total">
+                        <dt>Estimate</dt>
+                        <dd class="build-price">$3,200</dd>
+                    </div>
+                </dl>
+            </div>
+        </aside>
+
+    
+        <form id="build-form" class="build-options" onchange="updateBuild()" onsubmit="prepareEnquiry(event)">
+
+            <fieldset class="build-step">
+                <legend><span class="step-number">1</span> Body type</legend>
+                <div class="body-options">
+                    <label class="option">
+                        <input type="radio" name="body" value="CL-30" data-name="Small body" data-price="2400">
+                        <span class="option-box">
+                            <span class="option-title">CL-30 <span class="option-price">from $2,400</span></span>
+                            <span class="option-sub">Small body</span>
+                            <span class="option-text">A small, comfortable guitar for lighter playing and quiet sessions.</span>
+                        </span>
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="body" value="SD-100" data-name="OM body" data-price="3200" checked>
+                        <span class="option-box">
+                            <span class="option-title">SD-100 <span class="option-price">from $3,200</span></span>
+                            <span class="option-sub">OM body</span>
+                            <span class="option-text">A balanced body size, suited to fingerstyle and chords.</span>
+                        </span>
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="body" value="DD-12" data-name="Dreadnought" data-price="3600">
+                        <span class="option-box">
+                            <span class="option-title">DD-12 <span class="option-price">from $3,600</span></span>
+                            <span class="option-sub">Dreadnought</span>
+                            <span class="option-text">A larger guitar for full chords and strong strumming.</span>
+                        </span>
+                    </label>
+                </div>
+            </fieldset>
+
+            <!-- data-fill is the colour used in the drawing. url(#...) means one of the gradients in the SVG. -->
+            <fieldset class="build-step">
+                <legend><span class="step-number">2</span> Finish colour</legend>
+                <div class="swatch-options">
+                    <label class="swatch-option">
+                        <input type="radio" name="finish" value="Natural" data-fill="#e3c18c" data-price="0" checked>
+                        <span class="swatch-box">
+                            <span class="swatch natural" aria-hidden="true"></span>
+                            <span class="swatch-name">Natural</span>
+                            <span class="option-price">Included</span>
+                        </span>
+                    </label>
+
+                    <label class="swatch-option">
+                        <input type="radio" name="finish" value="Sunburst" data-fill="url(#sunburst)" data-price="250">
+                        <span class="swatch-box">
+                            <span class="swatch sunburst" aria-hidden="true"></span>
+                            <span class="swatch-name">Sunburst</span>
+                            <span class="option-price">+ $250</span>
+                        </span>
+                    </label>
+
+                    <label class="swatch-option">
+                        <input type="radio" name="finish" value="Tobacco burst" data-fill="url(#tobacco)" data-price="250">
+                        <span class="swatch-box">
+                            <span class="swatch tobacco" aria-hidden="true"></span>
+                            <span class="swatch-name">Tobacco burst</span>
+                            <span class="option-price">+ $250</span>
+                        </span>
+                    </label>
+
+                    <label class="swatch-option">
+                        <input type="radio" name="finish" value="Cherry" data-fill="url(#cherry)" data-price="300">
+                        <span class="swatch-box">
+                            <span class="swatch cherry" aria-hidden="true"></span>
+                            <span class="swatch-name">Cherry</span>
+                            <span class="option-price">+ $300</span>
+                        </span>
+                    </label>
+
+                    <label class="swatch-option">
+                        <input type="radio" name="finish" value="Black" data-fill="#1f1c19" data-price="300">
+                        <span class="swatch-box">
+                            <span class="swatch black" aria-hidden="true"></span>
+                            <span class="swatch-name">Black</span>
+                            <span class="option-price">+ $300</span>
+                        </span>
+                    </label>
+                </div>
+            </fieldset>
+
+            <!-- data-colour is the colour of the tuners, bridge pins and strap button in the drawing. -->
+            <fieldset class="build-step">
+                <legend><span class="step-number">3</span> Hardware</legend>
+                <div class="hardware-options">
+                    <label class="option">
+                        <input type="radio" name="hardware" value="Nickel" data-colour="#c9ced3" data-price="0" checked>
+                        <span class="option-box">
+                            <span class="option-title">
+                                <span><span class="metal nickel" aria-hidden="true"></span> Nickel</span>
+                                <span class="option-price">Included</span>
+                            </span>
+                            <span class="option-text">Bright and classic.</span>
+                        </span>
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="hardware" value="Gold" data-colour="#d4af5f" data-price="180">
+                        <span class="option-box">
+                            <span class="option-title">
+                                <span><span class="metal gold" aria-hidden="true"></span> Gold</span>
+                                <span class="option-price">+ $180</span>
+                            </span>
+                            <span class="option-text">Warm, and lovely with a burst.</span>
+                        </span>
+                    </label>
+
+                    <label class="option">
+                        <input type="radio" name="hardware" value="Black" data-colour="#1b1815" data-price="120">
+                        <span class="option-box">
+                            <span class="option-title">
+                                <span><span class="metal black" aria-hidden="true"></span> Black</span>
+                                <span class="option-price">+ $120</span>
+                            </span>
+                            <span class="option-text">Quiet and modern.</span>
+                        </span>
+                    </label>
+                </div>
+            </fieldset>
+
+            <fieldset class="build-step">
+                <legend><span class="step-number">4</span> Your details</legend>
+
+                <label for="customer-name">Name</label>
+                <input type="text" id="customer-name" name="customer-name" autocomplete="name" required>
+
+                <label for="customer-email">Email</label>
+                <input type="email" id="customer-email" name="customer-email" autocomplete="email" required>
+
+                <label for="customer-notes">Anything else? <span class="small-text">(optional)</span></label>
+                <textarea id="customer-notes" name="customer-notes" rows="4"
+                          placeholder="Left-handed, a pickup, a different neck shape..."></textarea>
+
+                <div class="build-submit">
+                    <p class="total-line">Estimated price <strong class="build-price">$3,200</strong></p>
+                    <button type="submit" class="button dark-button">Prepare my enquiry</button>
+                </div>
+                <p class="small-text">The estimate is a starting point. We confirm the final price after we talk about your build.</p>
+            </fieldset>
+
+            <!-- Shown after the visitor presses "Prepare my enquiry" -->
+            <div id="enquiry-result" hidden>
+                <h2>Your enquiry</h2>
+                <label for="enquiry-text">Copy this and email it to the workshop.</label>
+                <textarea id="enquiry-text" rows="13" readonly></textarea>
+                <button type="button" class="button dark-button copy-button" onclick="copyEnquiry()">Copy enquiry</button>
+                <p id="copy-message" class="small-text" aria-live="polite"></p>
+            </div>
+        </form>
+    </main>
+
+    <footer>
+        <span>Guitar Tech</span>
+        <span>© <span id="year">2026</span> Guitar Tech</span>
+    </footer>
+
+    <!-- Load the script after the HTML so it can find the elements above. -->
+    <script src="script.js"></script>
+</body>
+</html>

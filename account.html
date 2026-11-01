@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your Guitar Tech account: saved builds and your details.">
+    <title>My Account | Guitar Tech</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+    <!-- Header and a shorter background picture than the home page -->
+    <div class="hero page-hero">
+        <header>
+            <a href="index.html" class="logo">Guitar Tech</a>
+
+            <nav id="menu" aria-label="Main navigation">
+                <a href="gallery.html">Gallery</a>
+                <a href="index.html#craft">Shop</a>
+                <a href="about.html">About Us</a>
+                <a href="account.html" aria-current="page" onclick="closeCurtainMenu()">My Account</a>
+                <a href="build.html" class="commission-link">Build</a>
+            </nav>
+
+            <button id="menu-button" class="menu-button" type="button" onclick="toggleCurtainMenu()"
+                    aria-label="Open curtain menu" aria-expanded="false" aria-controls="menu">
+                <span class="curtain-icon" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                </span>
+            </button>
+        </header>
+
+        <div class="hero-text">
+            <p class="eyebrow">My Account</p>
+            <h1>Hello</h1>
+
+            <div class="decoration" aria-hidden="true">
+                <span class="gold-line"></span>
+                <span>◇</span>
+            </div>
+
+            <p class="hero-intro">Your saved builds and details, all in one place.</p>
+        </div>
+    </div>
+
+    <main id="main-content" class="account-page" tabindex="-1">
+
+        <!-- Left side: who is logged in -->
+        <aside class="account-card" aria-label="Your profile">
+            <span class="initials" aria-hidden="true">AT</span>
+            <h2></h2>
+            <p class="account-email"></p>
+            <p class="small-text"></p>
+
+            <div class="account-actions">
+                <a href="build.html" class="button dark-button">Start a new build</a>
+                <a href="index.html" class="button outline-dark-button">Log out</a>
+            </div>
+        </aside>
+
+        <div class="account-content">
+
+            <!-- Saved builds -->
+            <section class="account-section" aria-labelledby="builds-heading">
+                <div class="section-heading">
+                    <h2 id="builds-heading">Saved builds</h2>
+                    <p class="small-text">2 saved</p>
+                </div>
+
+                <ul class="saved-builds">
+                    <li class="saved-build">
+                        <span class="swatch saved-swatch sunburst" aria-hidden="true"></span>
+                        <div class="saved-text">
+                            <h3>DD-12</h3>
+                            <p class="saved-info">Sunburst finish · Gold hardware</p>
+                            <p class="small-text">Saved 24 October 2026</p>
+                        </div>
+                        <p class="saved-price">$4,030</p>
+                        <div class="saved-buttons">
+                            <a class="button dark-button" href="build.html?body=DD-12&amp;finish=Sunburst&amp;hardware=Gold">Open in builder</a>
+                            <button type="button" class="button outline-dark-button">Remove</button>
+                        </div>
+                    </li>
+
+                    <li class="saved-build">
+                        <span class="swatch saved-swatch cherry" aria-hidden="true"></span>
+                        <div class="saved-text">
+                            <h3>CL-30</h3>
+                            <p class="saved-info">Cherry finish · Nickel hardware</p>
+                            <p class="small-text">Saved 18 October 2026</p>
+                        </div>
+                        <p class="saved-price">$2,700</p>
+                        <div class="saved-buttons">
+                            <a class="button dark-button" href="build.html?body=CL-30&amp;finish=Cherry&amp;hardware=Nickel">Open in builder</a>
+                            <button type="button" class="button outline-dark-button">Remove</button>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Your details -->
+            <section class="account-section" aria-labelledby="details-heading">
+                <div class="section-heading">
+                    <h2 id="details-heading">Your details</h2>
+                </div>
+
+                <form class="details-form">
+                    <div>
+                        <label for="details-name">Name</label>
+                        <input type="text" id="details-name" value="Alex Taylor" autocomplete="name">
+                    </div>
+                    <div>
+                        <label for="details-email">Email</label>
+                        <input type="email" id="details-email" value="alex@example.com" autocomplete="email">
+                    </div>
+                    <div>
+                        <label for="details-phone">Phone <span class="small-text">(optional)</span></label>
+                        <input type="tel" id="details-phone" autocomplete="tel">
+                    </div>
+                    <div class="details-buttons">
+                        <button type="button" class="button dark-button">Save changes</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Delete account -->
+            <section class="account-section delete-section" aria-labelledby="delete-heading">
+                <h2 id="delete-heading">Delete account</h2>
+                <p>This removes your account and all your saved builds. It can't be undone.</p>
+                <button type="button" class="button delete-button">Delete my account</button>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <span>Guitar Tech</span>
+        <span>© <span id="year">2026</span> Guitar Tech</span>
+    </footer>
+
+    <!-- Load the script after the HTML so it can find the elements above. -->
+    <script src="script.js"></script>
+</body>
+</html>
